@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{color:red;}
+    .line{font-size: 30px;}
+  </style>
+</head>
+<body>
+<div id="app">
+  <img v-bind:src="imageURL">
+  <a v-bind:href="linkURL">百度</a>
+  <img :src="imageURL">
+  <h2 v-bind:class="getclass()">{{message}}</h2>
+  <button @click="btnClick1">active</button>
+  <button @click="btnClick2">line</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      isLine:true,
+      isActive:true,
+      message:'hello',
+      imageURL:'https://img.alicdn.com/imgextra/i3/2549841410/O1CN01mRwhHQ1MHp64Wqdcx_!!2549841410.jpg_430x430q90.jpg',
+      linkURL:'http://www.baidu.com',
+    },
+    methods:{
+      btnClick1:function()
+      {
+        this.isActive=!this.isActive;
+      },
+      btnClick2:function()
+      {
+        this.isLine=!this.isLine;
+      },
+      getclass:function()
+      {
+        return({active:this.isActive,line:this.isLine})
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .b{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(m,index) in movies" v-bind:class="'a'" @click="Click(index)">{{index}}-{{m}}</li>
+  </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data: {
+      message: 'a',
+      movies: ['巧克力', '草莓蛋糕', '冰淇淋', '榴莲千层', '猪肉脯'],
+    },
+    mounted:function()
+    {
+      this.inition();
+    },
+    methods:{
+      inition:function()
+      {
+        console.log('init')
+        document.getElementsByTagName('li').item(0).className='b';
+      },
+      Click:function(index)
+      {
+        console.log(this.movies.length);
+        for(let i=0;i<this.movies.length;i++)
+        {
+          if(i==index)
+          {
+            document.getElementsByTagName('li').item(i).className='b';
+          }
+          else
+          {
+            document.getElementsByTagName('li').item(i).className='a';
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
