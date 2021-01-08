@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{information}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hello',
+      name:'guoli',
+    },
+    computed:{
+      information:{
+        set:function(value){
+          const temp=value.split(' ');
+          this.message=temp[0];
+          this.name=temp[1];
+        },
+        get:function(){
+
+          return this.message+','+this.name;
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <span v-if="isshow">
+    用户账号：
+    <input type="text" placeholder="用户账号" key="username">
+  </span>
+  <span v-else>
+    邮箱：
+    <input type="text" placeholder="邮箱" key="email">
+  </span>
+  <button @click="btnclick">切换类型</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hello',
+      isshow:true,
+    },
+    methods:{
+      btnclick() {
+        this.isshow=!this.isshow;
+      }
+    }
+  })
+</script>
+</body>
+</html>

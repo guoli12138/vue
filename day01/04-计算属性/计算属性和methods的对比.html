@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{getinformation()}}</h2>
+  <h2>{{getinformation()}}</h2>
+  <h2>{{getinformation()}}</h2>
+  <h2>{{getinformation()}}</h2>
+  <hr>
+  <h2>{{information}}</h2>
+  <h2>{{information}}</h2>
+  <h2>{{information}}</h2>
+  <h2>{{information}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hello',
+      name:'guoli',
+    },
+    methods:{
+      getinformation:function()
+      {
+        console.log('getinformaton');
+        return this.message+','+this.name;
+      }
+    },
+    computed:{
+      //只执行一次，当检测到返回结果发生改变时重新执行
+      information:function()
+      {
+        console.log('information');
+        return this.message+','+ this.name;
+      }
+    }
+  })
+</script>
+</body>
+</html>
